@@ -16,6 +16,10 @@ public class private_house extends building{
         is_shed=_is_shed;
         is_summerhouse=_is_summerhouse;
     }
+    private_house(){
+        Name=InOut.getLineFromUser("назавание");
+        height=InOut.GetIntFromUser("высота", 1 );
+    }
 
     public void setIs_barn(boolean is_barn) {
         this.is_barn = is_barn;
