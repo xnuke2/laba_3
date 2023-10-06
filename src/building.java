@@ -10,4 +10,20 @@ public abstract class building {
         width=_width;
         length =_length;
     }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
 }

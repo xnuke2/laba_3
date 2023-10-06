@@ -17,5 +17,23 @@ public class private_house extends building{
         is_summerhouse=_is_summerhouse;
     }
 
+    public void setIs_barn(boolean is_barn) {
+        this.is_barn = is_barn;
+    }
 
+    public void setIs_garage(boolean is_garage) {
+        this.is_garage = is_garage;
+    }
+
+    public void setIs_shed(boolean is_shed) {
+        this.is_shed = is_shed;
+    }
+
+    public void setIs_summerhouse(boolean is_summerhouse) {
+        this.is_summerhouse = is_summerhouse;
+    }
+
+    public void setLand_area(int land_area) {
+        this.land_area = land_area;
+    }
 }
