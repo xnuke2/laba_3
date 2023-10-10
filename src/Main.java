@@ -6,6 +6,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+while(true){
+    //if (InOut.getBooleanFromUser("boolean")) System.out.println("получилось");
+    InOut.PrintInformationAboutMenu();
+}
 
     }
 }

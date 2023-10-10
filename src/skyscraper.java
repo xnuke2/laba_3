@@ -4,6 +4,7 @@ public class skyscraper extends building {
     boolean is_parking;
     boolean is_children_playground;
     boolean is_fence;
+    skyscraper(){}
     skyscraper(String _name,int _height,int _width,int _length,int _number_of_floors,int _the_area_of_1_apartment,boolean _is_parking,boolean _is_children_playground,boolean _is_fence){
         Name=_name;
         height=_height;
