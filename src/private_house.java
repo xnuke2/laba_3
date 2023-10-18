@@ -6,7 +6,7 @@ public class private_house extends building{
     boolean is_summerhouse=false;
     private_house(){
         super();
-        land_area=InOut.GetIntFromUser("Введите размер участка(в квадратных метрах", width*length );
+        land_area=InOut.GetIntFromUser("Введите размер участка(в квадратных метрах)", width*length );
         is_garage=InOut.getBooleanFromUser("Есть ли у вас гараж");
         is_barn=InOut.getBooleanFromUser("Есть ли у вас сарай/амбар");
         is_shed=InOut.getBooleanFromUser("Есть ли у вас навес/беседка");

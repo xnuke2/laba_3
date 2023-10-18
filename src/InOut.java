@@ -1,28 +1,35 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
-
 public class InOut {
     static Scanner in = new Scanner(System.in);
     static void PrintInformationAboutMenu(){
-        System.out.println("1 Ввести новый элемент\n2 Найти и возможно изменить элемент\n3 Найти самый высокое здание\n4 определить здания с высотой более 50 м");
+        System.out.println("1 Ввести новый элемент\n2 Найти и возможно изменить элемент\n3 Найти самый высокое здание\n4 Определить здания с высотой более 50 м");
         switch (InOut.GetIntFromUser("Введите номер варианта", 5,1)){
             case 1:
                 System.out.println("1 Частный дом\n2 небоскрёб\n3 Назад");
                 switch(InOut.GetIntFromUser("Введите номер варианта", 4,1)) {
                     case 1:
                         new private_house();
+                        break;
                     case 2:
-                        System.out.println("не реализовано");
                         new skyscraper();
+                        break;
                     case 3:
                         InOut.PrintInformationAboutMenu();
+                        break;
                 }
+                break;
             case 2:
                 //InOut.PrintPrivateHouse(building.findByName(InOut.getLineFromUser("Введите название здания")));
                 System.out.println("не реализовано");
+                break;
             case 3:
                 System.out.println("не реализовано");
+                break;
             case 4:
                 System.out.println("не реализовано");
+                break;
         }
     }
     static void PrintPrivateHouse(private_house _build){
@@ -80,8 +87,9 @@ public class InOut {
         while(num<=0){
             if(in.hasNextInt()){
                 num = in.nextInt();
-                if(num<min||num>=max){
+                if(num<min || num>=max){
                     System.out.println("Число некорректно");
+                    in.next();
                 }
             }else{
                 System.out.println("Вводиться не целое число");
