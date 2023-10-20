@@ -109,7 +109,7 @@ public class InOut {
                 }
                 break;
             case 3:
-                System.out.println("не реализовано");
+                FindTheTallestBuilding(building.buildingCollection);
                 break;
             case 4:
                 System.out.println("Здания с высотой больше 50");
@@ -133,6 +133,26 @@ public class InOut {
         if (findOne!=true){
             System.out.println("Не найдено");
         }
+    }
+    static void FindTheTallestBuilding(Collection <building> Coll){
+        Iterator<building> iter = Coll.iterator();
+        building it = iter.next();
+        int tmp = 0;
+        building ttttt = it;
+        while(iter.equals(iter)){
+            if(it.height == tmp){
+                System.out.println(it.Name);
+            }
+            if(it.height>tmp){
+                tmp = it.height;
+                ttttt = it;
+            }
+            if(iter.hasNext()){
+                it = iter.next();
+            }
+            else break;
+        }
+        System.out.println(ttttt.Name);
     }
     static void PrintAllNamesFromCollection(Collection<building> Coll){
         Iterator<building> iter = Coll.iterator();

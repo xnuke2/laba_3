@@ -3,7 +3,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
  abstract class building {
     static Collection<building> buildingCollection = new ArrayList<>();
-
+     public static building findByName(String Name) {
+         return buildingCollection.stream().filter(carnet -> Name.equals(carnet.getName())).findFirst().orElse(null);
+     }
     String Name;
     int height;
     int width;
@@ -28,19 +30,19 @@ import java.util.Iterator;
         return this.Name;
     }
 
-    public void setHeight() {
-        this.height =InOut.GetIntFromUser("Введите высоту", 1 );
-    }
+     public void setHeight() {
+         this.height =InOut.GetIntFromUser("Введите высоту", 1 );
+     }
 
-    public void setLength() {
-        this.length = InOut.GetIntFromUser("Введите длину", 1 );
-    }
+     public void setLength() {
+         this.length = InOut.GetIntFromUser("Введите длину", 1 );
+     }
 
-    public void setName() {
-        Name=InOut.getLineFromUser("Введите назавание");
-    }
+     public void setName() {
+         Name=InOut.getLineFromUser("Введите назавание");
+     }
 
-    public void setWidth() {this.width = InOut.GetIntFromUser("Введите ширину", 1 );}
+     public void setWidth() {this.width = InOut.GetIntFromUser("Введите ширину", 1 );}
 
      public static building FindBuildingByName(String Name){
          Iterator<building> iter = buildingCollection.iterator();
