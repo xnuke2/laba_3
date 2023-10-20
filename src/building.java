@@ -9,7 +9,11 @@ import java.util.Iterator;
     int width;
     int length;
     building(){
-        Name=InOut.getLineFromUser("Введите назавание");
+        String tmp=InOut.getLineFromUser("Введите назавание");
+        while (building.FindBuildingByName(tmp)!=null){
+            tmp=InOut.getLineFromUser("Уже есть здание с таким названием. Введите новое назавание");
+        }
+        Name=tmp;
         height=InOut.GetIntFromUser("Введите высоту", 1 );
         width=InOut.GetIntFromUser("Введите ширину", 1 );
         length=InOut.GetIntFromUser("Введите длину", 1 );
@@ -37,7 +41,7 @@ import java.util.Iterator;
     }
 
     public void setWidth() {this.width = InOut.GetIntFromUser("Введите ширину", 1 );}
-//    public static building GetBuildingFromCollection(){}
+
      public static building FindBuildingByName(String Name){
          Iterator<building> iter = buildingCollection.iterator();
          building it = iter.next();

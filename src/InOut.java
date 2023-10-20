@@ -112,8 +112,26 @@ public class InOut {
                 System.out.println("не реализовано");
                 break;
             case 4:
-                System.out.println("не реализовано");
+                System.out.println("Здания с высотой больше 50");
+                InOut.PrintBuildingsWithHeightMoreWhen50(building.buildingCollection);
                 break;
+        }
+    }
+    static void PrintBuildingsWithHeightMoreWhen50(Collection<building> Coll){
+        Iterator<building> iter = Coll.iterator();
+        building it = iter.next();
+        boolean findOne=false;
+        while(iter.equals(iter)) {
+            if (it.height>50){
+                System.out.println(it.Name);
+                findOne =true;
+            }
+            if(iter.hasNext()){
+                it = iter.next();
+            }else break;
+        }
+        if (findOne!=true){
+            System.out.println("Не найдено");
         }
     }
     static void PrintAllNamesFromCollection(Collection<building> Coll){
