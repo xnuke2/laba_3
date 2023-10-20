@@ -45,7 +45,7 @@ import java.util.Iterator;
          Iterator<building> iter = buildingCollection.iterator();
          building it = iter.next();
          while(iter.equals(iter)){
-             System.out.println(it.Name + "\n" + iter.getClass());
+             System.out.println(it.Name);
              if(iter.hasNext()){
                  it = iter.next();
              }else break;
@@ -54,8 +54,16 @@ import java.util.Iterator;
          iter = buildingCollection.iterator();
          it = iter.next();
          while(iter.equals(iter)) {
-             if (tmp == it.Name){
-                 //esfowhb
+             if (tmp.equals(it.Name)){
+                 System.out.println("Высота: " + it.height + "\n" +
+                         "Длина: " + it.length + "\n" +
+                         "Ширина: " + it.width + "\n");
+                 break;
+             }
+             else {
+                 if(iter.hasNext()){
+                     it = iter.next();
+                 }
              }
          }
      }
