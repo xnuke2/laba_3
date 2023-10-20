@@ -1,5 +1,6 @@
 import java.util.Collection;
 import java.util.ArrayList;
+import java.util.Iterator;
  abstract class building {
     static Collection<building> buildingCollection = new ArrayList<>();
      public static building findByName(String Name) {
@@ -40,4 +41,22 @@ import java.util.ArrayList;
     public void setWidth(int width) {
         this.width = width;
     }
+     public static void Change_Elem(){
+         Iterator<building> iter = buildingCollection.iterator();
+         building it = iter.next();
+         while(iter.equals(iter)){
+             System.out.println(it.Name + "\n" + iter.getClass());
+             if(iter.hasNext()){
+                 it = iter.next();
+             }else break;
+         }
+         String tmp = InOut.getLineFromUser("Введите название здания");
+         iter = buildingCollection.iterator();
+         it = iter.next();
+         while(iter.equals(iter)) {
+             if (tmp == it.Name){
+                 //esfowhb
+             }
+         }
+     }
 }

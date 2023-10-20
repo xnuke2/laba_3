@@ -1,5 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.Scanner;
 public class InOut {
     static Scanner in = new Scanner(System.in);
@@ -22,7 +24,7 @@ public class InOut {
                 break;
             case 2:
                 //InOut.PrintPrivateHouse(building.findByName(InOut.getLineFromUser("Введите название здания")));
-                System.out.println("не реализовано");
+                building.Change_Elem();
                 break;
             case 3:
                 System.out.println("не реализовано");
@@ -104,5 +106,4 @@ public class InOut {
     static int GetIntFromUser(String WhatToNeed){
         return GetIntFromUser(WhatToNeed,2147483647,-2147483647);
     }
-
 }
