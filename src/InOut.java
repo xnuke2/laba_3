@@ -23,8 +23,19 @@ public class InOut {
                 }
                 break;
             case 2:
-                //InOut.PrintPrivateHouse(building.findByName(InOut.getLineFromUser("Введите название здания")));
-                building.Change_Elem();
+                System.out.println("1 Вывести список домов\n2 Найти дом по названию\n3 Назад");
+                switch(InOut.GetIntFromUser("Введите номер варианта", 4,1)) {
+                    case 1:
+                        System.out.println("Список построек");
+                        InOut.PrintAllNamesFromCollection(building.buildingCollection);
+                        break;
+                    case 2:
+                        InOut.PrintBuilding(building.FindBuildingByName(InOut.getLineFromUser("Введите название здания")));
+                        break;
+                    case 3:
+                        InOut.PrintInformationAboutMenu();
+                        break;
+                }
                 break;
             case 3:
                 System.out.println("не реализовано");
@@ -33,6 +44,26 @@ public class InOut {
                 System.out.println("не реализовано");
                 break;
         }
+    }
+    static void PrintAllNamesFromCollection(Collection<building> Coll){
+        Iterator<building> iter = Coll.iterator();
+        building it = iter.next();
+        while(iter.equals(iter)){
+            System.out.println(it.Name);
+            if(iter.hasNext()){
+                it = iter.next();
+            }else break;
+        }
+    }
+    static void  PrintBuilding(building _build){
+        if(_build!=null) {
+            System.out.println(_build.getClass());
+//        if(_build.getClass()==private_house.class){
+//
+//        }
+//        private_house f= (private_house) _build;
+        }
+        System.out.println("0");
     }
     static void PrintPrivateHouse(private_house _build){
         System.out.println("Название "+_build.Name);

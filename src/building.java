@@ -41,20 +41,12 @@ import java.util.Iterator;
     public void setWidth(int width) {
         this.width = width;
     }
-     public static void Change_Elem(){
+//    public static building GetBuildingFromCollection(){}
+     public static building FindBuildingByName(String Name){
          Iterator<building> iter = buildingCollection.iterator();
          building it = iter.next();
-         while(iter.equals(iter)){
-             System.out.println(it.Name);
-             if(iter.hasNext()){
-                 it = iter.next();
-             }else break;
-         }
-         String tmp = InOut.getLineFromUser("Введите название здания");
-         iter = buildingCollection.iterator();
-         it = iter.next();
          while(iter.equals(iter)) {
-             if (tmp.equals(it.Name)){
+             if (Name.equals(it.Name)){
                  System.out.println("Высота: " + it.height + "\n" +
                          "Длина: " + it.length + "\n" +
                          "Ширина: " + it.width + "\n");
@@ -66,5 +58,6 @@ import java.util.Iterator;
                  }
              }
          }
+         return null;
      }
 }
