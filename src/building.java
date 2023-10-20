@@ -3,9 +3,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
  abstract class building {
     static Collection<building> buildingCollection = new ArrayList<>();
-     public static building findByName(String Name) {
-         return buildingCollection.stream().filter(carnet -> Name.equals(carnet.getName())).findFirst().orElse(null);
-     }
+
     String Name;
     int height;
     int width;
@@ -26,31 +24,26 @@ import java.util.Iterator;
         return this.Name;
     }
 
-    public void setHeight(int height) {
-        this.height = height;
+    public void setHeight() {
+        this.height =InOut.GetIntFromUser("Введите высоту", 1 );
     }
 
-    public void setLength(int length) {
-        this.length = length;
+    public void setLength() {
+        this.length = InOut.GetIntFromUser("Введите длину", 1 );
     }
 
-    public void setName(String name) {
-        Name = name;
+    public void setName() {
+        Name=InOut.getLineFromUser("Введите назавание");
     }
 
-    public void setWidth(int width) {
-        this.width = width;
-    }
+    public void setWidth() {this.width = InOut.GetIntFromUser("Введите ширину", 1 );}
 //    public static building GetBuildingFromCollection(){}
      public static building FindBuildingByName(String Name){
          Iterator<building> iter = buildingCollection.iterator();
          building it = iter.next();
          while(iter.equals(iter)) {
              if (Name.equals(it.Name)){
-                 System.out.println("Высота: " + it.height + "\n" +
-                         "Длина: " + it.length + "\n" +
-                         "Ширина: " + it.width + "\n");
-                 break;
+                 return it;
              }
              else {
                  if(iter.hasNext()){

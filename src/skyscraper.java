@@ -22,4 +22,24 @@ public class skyscraper extends building {
         is_fence=_is_fence;
         building.buildingCollection.add(this);
     }
+
+    public void setNumber_of_floors() {
+        this.number_of_floors = InOut.GetIntFromUser("Введите количество этажей", 1);
+    }
+
+    public void setIs_children_playground() {
+        this.is_children_playground = InOut.getBooleanFromUser("Есть ли у вас детская площадка");
+    }
+
+    public void setIs_fence() {
+        this.is_fence = InOut.getBooleanFromUser("Есть ли у вас забор");
+    }
+
+    public void setIs_parking() {
+        this.is_parking = InOut.getBooleanFromUser("Есть ли у вас парковка");
+    }
+
+    public void setThe_area_of_1_apartment() {
+        this.the_area_of_1_apartment = InOut.GetIntFromUser("Введите площадь одного номера");
+    }
 }
