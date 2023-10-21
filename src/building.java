@@ -1,7 +1,7 @@
 import java.util.*;
 
 abstract class building implements Comparable{
-    static Collection<building> buildingCollection = new ArrayList<>();//коллекция для хранения наследников класса
+    static ArrayList<building> buildingCollection = new ArrayList<>();//коллекция для хранения наследников класса
      @Override
      public int compareTo(Object o) {
          building f = (building) o;
@@ -9,7 +9,7 @@ abstract class building implements Comparable{
      }
      static void sortByHeight(){
 
-         //Collections.sort(buildingCollection, Comparator.comparing(building::getHeight));
+         Collections.sort(buildingCollection, Comparator.comparing(building::getHeight));
          //buildingCollection.stream().sorted().collect(buildingCollection);
          //Collections.sort(buildingCollection.stream().toList());
          //buildingCollection.stream().sorted(building::compareTo);
