@@ -8,11 +8,7 @@ abstract class building implements Comparable{
          return this.height - f.height ;
      }
      static void sortByHeight(){
-
          Collections.sort(buildingCollection, Comparator.comparing(building::getHeight));
-         //buildingCollection.stream().sorted().collect(buildingCollection);
-         //Collections.sort(buildingCollection.stream().toList());
-         //buildingCollection.stream().sorted(building::compareTo);
      }
 
 

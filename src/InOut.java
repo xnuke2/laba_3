@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class InOut {
     static Scanner in = new Scanner(System.in);
     static void PrintInformationAboutMenu(){//функция отвечающая за взаимодействие с пользователем
-        System.out.println("1 Ввести новый элемент\n2 Найти и возможно изменить элемент\n3 Найти самый высокое здание\n4 Определить здания с высотой более 50 м");
-        switch (InOut.GetIntFromUser("Введите номер варианта", 5,1)){
+        System.out.println("1 Ввести новый элемент\n2 Найти и возможно изменить элемент\n3 Найти самый высокое здание\n4 Определить здания с высотой более 50 м\n5 Сортировать по высоте");
+        switch (InOut.GetIntFromUser("Введите номер варианта", 6,1)){
             case 1:
                 System.out.println("1 Частный дом\n2 небоскрёб\n3 Назад");
                 switch(InOut.GetIntFromUser("Введите номер варианта", 4,1)) {
@@ -114,6 +114,9 @@ public class InOut {
             case 4:
                 System.out.println("Здания с высотой больше 50");
                 InOut.PrintBuildingsWithHeightMoreWhen50(building.buildingCollection);
+                break;
+            case 5:
+                building.sortByHeight();
                 break;
         }
     }
