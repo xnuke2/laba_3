@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 public class InOut {
     static Scanner in = new Scanner(System.in);
-    static void PrintInformationAboutMenu(){
+    static void PrintInformationAboutMenu(){//функция отвечающая за взаимодействие с пользователем
         System.out.println("1 Ввести новый элемент\n2 Найти и возможно изменить элемент\n3 Найти самый высокое здание\n4 Определить здания с высотой более 50 м");
         switch (InOut.GetIntFromUser("Введите номер варианта", 5,1)){
             case 1:
@@ -117,7 +117,8 @@ public class InOut {
                 break;
         }
     }
-    static void PrintBuildingsWithHeightMoreWhen50(Collection<building> Coll){
+    static void PrintBuildingsWithHeightMoreWhen50(Collection<building> Coll){/*функция которая выводит в консоль все
+        здания высотой больше 50 метров*/
         Iterator<building> iter = Coll.iterator();
         building it = iter.next();
         boolean findOne=false;
@@ -134,7 +135,7 @@ public class InOut {
             System.out.println("Не найдено");
         }
     }
-    static void FindTheTallestBuilding(Collection <building> Coll){
+    static void FindTheTallestBuilding(Collection <building> Coll){//функция которая находит самое высокое здание
         Iterator<building> iter = Coll.iterator();
         building it = iter.next();
         int tmp = 0;
@@ -154,7 +155,7 @@ public class InOut {
         }
         System.out.println(ttttt.Name);
     }
-    static void PrintAllNamesFromCollection(Collection<building> Coll){
+    static void PrintAllNamesFromCollection(Collection<building> Coll){//функция которая выводит все название зданий
         Iterator<building> iter = Coll.iterator();
         building it = iter.next();
         while(iter.equals(iter)){
@@ -164,7 +165,7 @@ public class InOut {
             }else break;
         }
     }
-    static void  PrintBuilding(building _build){
+    static void  PrintBuilding(building _build){//функция которая выводит все данные здания в зависимости от типа здания
         if(_build!=null) {
             if(_build.getClass()==private_house.class){
                 InOut.PrintPrivateHouse((private_house) _build);
@@ -174,7 +175,7 @@ public class InOut {
         }
         System.out.println();
     }
-    static void PrintPrivateHouse(private_house _build){
+    static void PrintPrivateHouse(private_house _build){//выводит всю информацию о объекте класса private_house
         System.out.println("Название "+_build.Name);
         System.out.println("Высота "+_build.height);
         System.out.println("Ширина "+_build.width);
@@ -189,7 +190,7 @@ public class InOut {
         if(_build.is_summerhouse) System.out.println("Является летним домом(дачей) ");
         else System.out.println("Не является летним домом(дачей) ");
     }
-    static void PrintSkyscraper(skyscraper _build){
+    static void PrintSkyscraper(skyscraper _build){//выводит всю информацию о объекте класса Skyscraper
         System.out.println("Название "+_build.Name);
         System.out.println("Высота "+_build.height);
         System.out.println("Ширина "+_build.width);
@@ -204,7 +205,7 @@ public class InOut {
         else System.out.println("Парковки нет ");
 
     }
-    static  boolean getBooleanFromUser(String WhatToNeed){
+    static  boolean getBooleanFromUser(String WhatToNeed){//функция для получения значения boolean от пользователя
         System.out.println(WhatToNeed+" ('да' или 'нет')");
         String name="";
         while(name.isEmpty()){
@@ -224,7 +225,7 @@ public class InOut {
         }
         return false;
     }
-    static String getLineFromUser(String WhatToNeed){
+    static String getLineFromUser(String WhatToNeed){//функция для получения значения string от пользователя
         System.out.println(WhatToNeed);
         String name="";
         while(name.isEmpty()){
@@ -237,7 +238,7 @@ public class InOut {
         }
         return name;
     }
-    static int GetIntFromUser(String WhatToNeed, int max, int min){
+    static int GetIntFromUser(String WhatToNeed, int max, int min){//функция для получения значения int от пользователя
         if (max<min)return 0;
         System.out.println(WhatToNeed);
         int num=0;
@@ -255,10 +256,10 @@ public class InOut {
         }
         return num;
     }
-    static int GetIntFromUser(String WhatToNeed, int min){
+    static int GetIntFromUser(String WhatToNeed, int min){//функция для получения значения int от пользователя
         return GetIntFromUser(WhatToNeed,2147483647,min);
     }
-    static int GetIntFromUser(String WhatToNeed){
+    static int GetIntFromUser(String WhatToNeed){//функция для получения значения int от пользователя
         return GetIntFromUser(WhatToNeed,2147483647,-2147483647);
     }
 }
