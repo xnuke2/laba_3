@@ -43,4 +43,27 @@ public class skyscraper extends building {
     public void setThe_area_of_1_apartment() {// установить значение The_area_of_1_apartment
         this.the_area_of_1_apartment = InOut.GetIntFromUser("Введите площадь одного номера");
     }
+    public String getNumber_of_floord(){
+        return "Количество этажей " + this.number_of_floors;
+    }
+    public String getIs_children_playground(){
+        return "Детская площадка " + this.is_children_playground;
+    }
+    public String getIs_fence(){
+        return "Забор " + this.is_fence;
+    }
+    public String getIs_parking(){
+        return "Парковка " + this.is_parking;
+    }
+    public String getThe_area_of_1_apartment(){
+        return "площадь 1 номера " + this.the_area_of_1_apartment;
+    }
+    public String getInfoOfSkyscraper(){
+        return getInfo() + "\n" +
+                "Количество этажей " + this.number_of_floors + "\n" +
+                "Детская площадка " + this.is_children_playground + "\n" +
+                "Забор " + this.is_fence + "\n" +
+                "Парковка " + this.is_parking + "\n" +
+                "площадь 1 номера " + this.the_area_of_1_apartment;
+    }
 }

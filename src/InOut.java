@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class InOut {
     static Scanner in = new Scanner(System.in);
     static void PrintInformationAboutMenu(){//функция отвечающая за взаимодействие с пользователем
-        System.out.println("1 Ввести новый элемент\n2 Найти и возможно изменить элемент\n3 Найти самый высокое здание\n4 Определить здания с высотой более 50 м\n5 Сортировать по высоте");
+        System.out.println("1 Ввести новый элемент\n2 Найти и возможно изменить элемент\n3 Найти самое высокое здание\n4 Определить здания с высотой более 50 м\n5 Сортировать по высоте");
         switch (InOut.GetIntFromUser("Введите номер варианта", 6,1)){
             case 1:
                 System.out.println("1 Частный дом\n2 небоскрёб\n3 Назад");
@@ -26,98 +26,130 @@ public class InOut {
                 System.out.println("1 Вывести список домов\n2 Найти дом по названию\n3 Назад");
                 switch(InOut.GetIntFromUser("Введите номер варианта", 4,1)) {
                     case 1:
-                        System.out.println("Список построек");
-                        InOut.PrintAllNamesFromCollection(building.buildingCollection);
-                        break;
-                    case 2:
-                        building tmp = building.FindBuildingByName(InOut.getLineFromUser("Введите название здания"));
-                        InOut.PrintBuilding(tmp);
-                        if(tmp.getClass()==private_house.class){
-                            private_house tmp1=(private_house) tmp;
-                            System.out.println("1 Редактировать имя\n2 Редактировать высоту\n3 Редактировать ширину\n4 Редактировать длину\n5 Редактировать плорщадь\n6 Редактировать поле гараж\n7 Редактировать поле сарай\n8 Редактировать поле навес/беседка\n9 Редактировать поле леьтний дом(дача)\n10 Выход");
-                            switch(InOut.GetIntFromUser("Введите номер варианта", 11,1)) {
-                                case 1:
-                                    tmp1.setName();
-                                    break;
-                                case 2:
-                                    tmp1.setHeight();
-                                    break;
-                                case 3:
-                                    tmp1.setWidth();
-                                    break;
-                                case 4:
-                                    tmp1.setLength();
-                                    break;
-                                case 5:
-                                    tmp1.setLand_area();
-                                    break;
-                                case 6:
-                                    tmp1.setIs_garage();
-                                    break;
-                                case 7:
-                                    tmp1.setIs_barn();
-                                    break;
-                                case 8:
-                                    tmp1.setIs_shed();
-                                    break;
-                                case 9:
-                                    tmp1.setIs_summerhouse();
-                                    break;
-                                case 10:
-                                    break;
-                            }
-                        } else if (tmp.getClass()==skyscraper.class) {
-                            skyscraper tmp1=(skyscraper)tmp;
-                            System.out.println("1 Редактировать имя\n2 Редактировать высоту\n3 Редактировать ширину\n4 Редактировать длину\n5 Редактировать коллиичество этажей\n6 Редактировать площадь 1 квартиры\n7 Редактировать поле парковка\n8 Редактировать поле площадка\n9 Редактировать поле забор)\n10 Выход");
-                            switch(InOut.GetIntFromUser("Введите номер варианта", 11,1)) {
-                                case 1:
-                                    tmp1.setName();
-                                    break;
-                                case 2:
-                                    tmp1.setHeight();
-                                    break;
-                                case 3:
-                                    tmp1.setWidth();
-                                    break;
-                                case 4:
-                                    tmp1.setLength();
-                                    break;
-                                case 5:
-                                    tmp1.setNumber_of_floors();
-                                    break;
-                                case 6:
-                                    tmp1.setThe_area_of_1_apartment();
-                                    break;
-                                case 7:
-                                    tmp1.setIs_parking();
-                                    break;
-                                case 8:
-                                    tmp1.setIs_children_playground();
-                                    break;
-                                case 9:
-                                    tmp1.setIs_fence();
-                                    break;
-                                case 10:
-                                    break;
-                            }
+                        if(!building.buildingCollection.isEmpty()){
+                            System.out.println("Список построек");
+                            InOut.PrintAllNamesFromCollection(building.buildingCollection);
+                            break;
                         }
-                        break;
-
+                        else {
+                            System.out.println("Контейнер пуст");
+                            break;
+                        }
+                    case 2:
+                        if(!building.buildingCollection.isEmpty()){
+                            building tmp = null;
+                            while(tmp==null){
+                                tmp = building.FindBuildingByName(InOut.getLineFromUser("Введите название здания"));
+                            }
+                            InOut.PrintBuilding(tmp);
+                            if(tmp.getClass()==private_house.class){
+                                private_house tmp1=(private_house) tmp;
+                                System.out.println("1 Редактировать имя\n2 Редактировать высоту\n3 Редактировать ширину\n4 Редактировать длину\n5 Редактировать плорщадь\n6 Редактировать поле гараж\n7 Редактировать поле сарай\n8 Редактировать поле навес/беседка\n9 Редактировать поле леьтний дом(дача)\n10 Выход");
+                                switch(InOut.GetIntFromUser("Введите номер варианта", 11,1)) {
+                                    case 1:
+                                        tmp1.setName();
+                                        break;
+                                    case 2:
+                                        tmp1.setHeight();
+                                        break;
+                                    case 3:
+                                        tmp1.setWidth();
+                                        break;
+                                    case 4:
+                                        tmp1.setLength();
+                                        break;
+                                    case 5:
+                                        tmp1.setLand_area();
+                                        break;
+                                    case 6:
+                                        tmp1.setIs_garage();
+                                        break;
+                                    case 7:
+                                        tmp1.setIs_barn();
+                                        break;
+                                    case 8:
+                                        tmp1.setIs_shed();
+                                        break;
+                                    case 9:
+                                        tmp1.setIs_summerhouse();
+                                        break;
+                                    case 10:
+                                        break;
+                                }
+                            } else if (tmp.getClass()==skyscraper.class) {
+                                skyscraper tmp1=(skyscraper)tmp;
+                                System.out.println("1 Редактировать имя\n2 Редактировать высоту\n3 Редактировать ширину\n4 Редактировать длину\n5 Редактировать коллиичество этажей\n6 Редактировать площадь 1 квартиры\n7 Редактировать поле парковка\n8 Редактировать поле площадка\n9 Редактировать поле забор)\n10 Выход");
+                                switch(InOut.GetIntFromUser("Введите номер варианта", 11,1)) {
+                                    case 1:
+                                        tmp1.setName();
+                                        break;
+                                    case 2:
+                                        tmp1.setHeight();
+                                        break;
+                                    case 3:
+                                        tmp1.setWidth();
+                                        break;
+                                    case 4:
+                                        tmp1.setLength();
+                                        break;
+                                    case 5:
+                                        tmp1.setNumber_of_floors();
+                                        break;
+                                    case 6:
+                                        tmp1.setThe_area_of_1_apartment();
+                                        break;
+                                    case 7:
+                                        tmp1.setIs_parking();
+                                        break;
+                                    case 8:
+                                        tmp1.setIs_children_playground();
+                                        break;
+                                    case 9:
+                                        tmp1.setIs_fence();
+                                        break;
+                                    case 10:
+                                        break;
+                                }
+                            }
+                            break;
+                        }
+                        else{
+                            System.out.println("Контейнер пуст");
+                            break;
+                        }
                     case 3:
                         InOut.PrintInformationAboutMenu();
                         break;
                 }
                 break;
             case 3:
-                FindTheTallestBuilding(building.buildingCollection);
-                break;
+                if(!building.buildingCollection.isEmpty()){
+                    FindTheTallestBuilding(building.buildingCollection);
+                    break;
+                }
+                else{
+                    System.out.println("Контейнер пуст");
+                    break;
+                }
             case 4:
-                System.out.println("Здания с высотой больше 50");
-                InOut.PrintBuildingsWithHeightMoreWhen50(building.buildingCollection);
-                break;
+                if(!building.buildingCollection.isEmpty()){
+                    System.out.println("Здания с высотой больше 50");
+                    InOut.PrintBuildingsWithHeightMoreWhen50(building.buildingCollection);
+                    break;
+                }
+                else{
+                    System.out.println("Контейнер пуст");
+                    break;
+                }
             case 5:
-                building.sortByHeight();
-                break;
+                if(!building.buildingCollection.isEmpty()){
+                    building.sortByHeight();
+                    break;
+                }
+                else{
+                    System.out.println("Контейнер пуст");
+                    break;
+                }
         }
     }
     static void PrintBuildingsWithHeightMoreWhen50(Collection<building> Coll){/*функция которая выводит в консоль все
@@ -168,7 +200,7 @@ public class InOut {
             }else break;
         }
     }
-    static void  PrintBuilding(building _build){//функция которая выводит все данные здания в зависимости от типа здания
+    static void PrintBuilding(building _build){//функция которая выводит все данные здания в зависимости от типа здания
         if(_build!=null) {
             if(_build.getClass()==private_house.class){
                 InOut.PrintPrivateHouse((private_house) _build);
@@ -179,34 +211,10 @@ public class InOut {
         System.out.println();
     }
     static void PrintPrivateHouse(private_house _build){//выводит всю информацию о объекте класса private_house
-        System.out.println("Название "+_build.Name);
-        System.out.println("Высота "+_build.height);
-        System.out.println("Ширина "+_build.width);
-        System.out.println("Длина "+_build.length);
-        System.out.println("Площадь "+_build.land_area);
-        if(_build.is_shed) System.out.println("Беседка/навес есть ");
-        else System.out.println("Беседки/навеса нет ");
-        if(_build.is_barn) System.out.println("Cарай/амбар есть ");
-        else System.out.println("Cарая/амбара нет ");
-        if(_build.is_garage) System.out.println("Гараж есть ");
-        else System.out.println("Гаража нет ");
-        if(_build.is_summerhouse) System.out.println("Является летним домом(дачей) ");
-        else System.out.println("Не является летним домом(дачей) ");
+        System.out.println(_build.getInfoOfPrivateHouse());
     }
     static void PrintSkyscraper(skyscraper _build){//выводит всю информацию о объекте класса Skyscraper
-        System.out.println("Название "+_build.Name);
-        System.out.println("Высота "+_build.height);
-        System.out.println("Ширина "+_build.width);
-        System.out.println("Длина "+_build.length);
-        System.out.println("Колличество этажей "+_build.number_of_floors);
-        System.out.println("Площадь 1 квартиры "+_build.the_area_of_1_apartment);
-        if(_build.is_children_playground) System.out.println("Детская площадка есть ");
-        else System.out.println("Детской площадки нет ");
-        if(_build.is_fence) System.out.println("Забор есть ");
-        else System.out.println("Забора нет ");
-        if(_build.is_parking) System.out.println("Парковка есть ");
-        else System.out.println("Парковки нет ");
-
+        System.out.println(_build.getInfoOfSkyscraper());
     }
     static  boolean getBooleanFromUser(String WhatToNeed){//функция для получения значения boolean от пользователя
         System.out.println(WhatToNeed+" ('да' или 'нет')");

@@ -1,18 +1,10 @@
 import java.util.*;
 
-abstract class building implements Comparable{
+abstract class building{
     static ArrayList<building> buildingCollection = new ArrayList<>();//коллекция для хранения наследников класса
-     @Override
-     public int compareTo(Object o) {
-         building f = (building) o;
-         return this.height - f.height ;
+     static void sortByHeight(){//Сортировка объектов по высоте
+         Collections.sort(buildingCollection, Comparator.comparing(building::GetHeight));
      }
-     static void sortByHeight(){
-         Collections.sort(buildingCollection, Comparator.comparing(building::getHeight));
-     }
-
-
-     // building
     String Name;//название здания
     int height;// высота здания
     int width;// ширина здания
@@ -34,9 +26,7 @@ abstract class building implements Comparable{
         length =_length;
     }
 
-    public int getHeight() {
-        return height;
-    }
+
 
     public void setHeight() {// установить значение height
         this.height =InOut.GetIntFromUser("Введите высоту", 1 );
@@ -55,6 +45,9 @@ abstract class building implements Comparable{
     }
 
      public static building FindBuildingByName(String Name){//поиск в коллекции по названию
+        if(buildingCollection.isEmpty()){
+            return null;
+        }
          Iterator<building> iter = buildingCollection.iterator();
          building it = iter.next();
          while(iter.equals(iter)) {
@@ -65,8 +58,30 @@ abstract class building implements Comparable{
                  if(iter.hasNext()){
                      it = iter.next();
                  }
+                 else break;
              }
          }
          return null;
      }
+
+    public String getWidth() {
+        return "Ширина "+ width;
+    }
+
+    public String getName() {
+        return "Название "+ Name;
+    }
+
+    public String getLength() {
+        return "Длина "+length;
+    }
+    public int GetHeight() {//Возвращает высоту здания
+        return height;
+    }
+    public String getHeight(){
+        return "Высота "+this.height;
+    }
+    public String getInfo(){
+        return "Ширина "+ width + "\n" + "Название "+ Name + "\n" + "Длина "+ length + "\n" + "Высота "+height;
+    }
 }

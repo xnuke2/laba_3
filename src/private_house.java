@@ -47,4 +47,28 @@ public class private_house extends building{
         this.land_area = InOut.GetIntFromUser("Введите размер участка(в квадратных метрах", 1 );
     }
 
+    public String getLand_area() {
+        return "Площадь "+this.land_area;
+    }
+    public String getIs_barn(){
+        return "Сарай/амбар " + this.is_barn;
+    }
+    public String getIs_garage(){
+        return "Гараж " + this.is_garage;
+    }
+    public String getIs_shed(){
+        return "Навес/беседка " + this.is_shed;
+    }
+    public String getIs_summerhouse() {
+        return "Летний дом " + this.is_summerhouse;
+    }
+
+    public String getInfoOfPrivateHouse(){
+        return getInfo() + "\n" +
+                "Площадь "+this.land_area + "\n" +
+                "Сарай/амбар " + this.is_barn + "\n" +
+                "Гараж " + this.is_garage + "\n" +
+                "Навес/беседка " + this.is_shed + "\n" +
+                "Летний дом " + this.is_summerhouse;
+    }
 }
